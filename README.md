@@ -1,4 +1,4 @@
-# JWT Validation Middleware for Azure Functions (Isolated Worker)
+# JWT Validation Middleware for Azure Functions (Isolated Worker Model)
 
 This sample implements JWT token validation middleware for Azure function isolated worker functions.
 * Each function can choose to be authorized or not, and optionally, specify a required scope or role.
@@ -11,7 +11,8 @@ This sample implements JWT token validation middleware for Azure function isolat
         // [Authorize(scope:"my.scope")] // Token validation with a required scope.
         // [Authorize(role:"my.role")] // Token validation with a required role.
         [Function("Function1")]
-        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req, FunctionContext context)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get")]
+            HttpRequestData req, FunctionContext context)
         {
             if (!TokenValidationMiddleware.IsAuthenticated(context, out var unathenticatedResponse))
             {
