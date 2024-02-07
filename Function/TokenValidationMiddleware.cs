@@ -192,7 +192,7 @@ namespace Function
         private static TokenValidationParameters GetValidationParameters()
         {
             var configurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(
-                "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration",
+                SecurityConfig.OpenIdConnectConfigurationUrl,
                 new OpenIdConnectConfigurationRetriever(),
                 new HttpDocumentRetriever());
 
