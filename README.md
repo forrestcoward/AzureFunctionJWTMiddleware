@@ -4,6 +4,10 @@ This sample implements JWT token validation middleware for Azure function isolat
 * Each function can choose to be authorized or not, and optionally, specify a required scope or role.
 * Function validation with Function codes still works the same.
 
+I find Azure EzAuth pretty crappy due to generally bad visibility and logging as well as lack of customization and flexibility. This is an alternative that moves validation in house and lets you decorate your functions independently.
+
+Please test throughougly for your use case before using in a production system!
+
 # Sample
 
 ```c#
